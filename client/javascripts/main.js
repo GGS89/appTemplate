@@ -1,14 +1,9 @@
-angular.module('Main', [])
-  .controller('MainController', function($scope, $http) {
+var app = angular.module('Main', ['ngRoute']);
 
-    $scope.sendHTTP = function(){
-     $http.get('/name').
-       success(function(data, status, headers, config) {
-         $scope.data = data;
-       }).
-       error(function(data, status, headers, config) {
-         $scope.data = data;
-       });
-    }
-
-  });
+app.config(['$routeProvider', function ($routeProvider) {
+    $routeProvider
+      .when('/', {
+        templateUrl: '/index.html',
+        controller: 'MainController'
+      });
+  }]);

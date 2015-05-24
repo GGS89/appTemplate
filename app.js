@@ -24,8 +24,11 @@ app.use(express.static(path.join(__dirname, 'client')));
 app.use(express.static(path.join(__dirname, 'lib')));
 app.use(app.router);
 
-app.get('/', routes.index);
-app.get('/name', function(req, res){
+app.get('/', function(req, res){
+	res.end();
+});
+
+app.get('/cookparams', function(req, res){
     res.send({userId:'0001', name: 'Gennady'});
 });
 /// catch 404 and forwarding to error handler
